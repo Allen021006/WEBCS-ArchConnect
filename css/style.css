@@ -1,1 +1,128 @@
+/* -----------------------------
+   Reset & Base Styles
+------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #545454; /* Dove Grey */
+    line-height: 1.6;
+    background-color: #FFFFFF; /* Light neutral */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* -----------------------------
+   Header & Navigation
+------------------------------ */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 50px;
+}
+
+/* Desktop Navigation */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    color: #1C3C6D; /* ArchConnect Blue */
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #FFC20C; /* Mikado Yellow Accent */
+}
+
+/* Hamburger Menu (Mobile) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #1C3C6D;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+/* -----------------------------
+   Responsive Design
+------------------------------ */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: 0;
+        height: 100vh;
+        top: 0;
+        background-color: #FFFFFF;
+        flex-direction: column;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        padding-top: 100px;
+        gap: 40px;
+        align-items: center;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* -----------------------------
+   Hero Section
+------------------------------ */
+.hero {
+    text-align: center;
+    padding: 100px 10%;
+    background-color: #F4F4F4;
+}
+
+.hero h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 64px;
+    color: #1C3C6D;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #545454;
+}
 
