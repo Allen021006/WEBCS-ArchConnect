@@ -1,6 +1,4 @@
-/* -----------------------------
-   Reset & Base Styles
------------------------------- */
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -9,120 +7,82 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    color: #545454; /* Dove Grey */
     line-height: 1.6;
-    background-color: #FFFFFF; /* Light neutral */
+    color: #333;
+    overflow-x: hidden;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-ul {
-    list-style: none;
-}
-
-/* -----------------------------
-   Header & Navigation
------------------------------- */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 10%;
-    background-color: #FFFFFF;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
+/* Header Styles */
+.header {
+    background: #F8FAFC;
+    padding: 1rem 0;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
 }
 
-.logo img {
-    height: 50px;
-}
-
-/* Desktop Navigation */
-.nav-links {
+.nav-wrapper {
     display: flex;
-    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.nav-links li a {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 600;
-    color: #1C3C6D; /* ArchConnect Blue */
-    transition: color 0.3s;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.nav-links li a:hover {
-    color: #FFC20C; /* Mikado Yellow Accent */
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Hamburger Menu (Mobile) */
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #64748B;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #111827;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    gap: 5px;
+    gap: 4px;
 }
 
 .hamburger span {
     width: 25px;
     height: 3px;
-    background-color: #1C3C6D;
-    border-radius: 2px;
-    transition: all 0.3s;
+    background: #64748B;
+    transition: 0.3s;
 }
 
-/* -----------------------------
-   Responsive Design
------------------------------- */
-@media screen and (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        right: 0;
-        height: 100vh;
-        top: 0;
-        background-color: #FFFFFF;
-        flex-direction: column;
-        width: 50%;
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-        padding-top: 100px;
-        gap: 40px;
-        align-items: center;
-        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-    }
-
-    .nav-links.active {
-        transform: translateX(0);
-    }
-
-    .hamburger {
-        display: flex;
-    }
-}
-
-/* -----------------------------
-   Hero Section
------------------------------- */
-.hero {
+main {
+    margin-top: 100px;
+    padding: 2rem;
     text-align: center;
-    padding: 100px 10%;
-    background-color: #F4F4F4;
 }
-
-.hero h1 {
-    font-family: 'Raleway', sans-serif;
-    font-weight: 700;
-    font-size: 64px;
-    color: #1C3C6D;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 18px;
-    color: #545454;
-}
-
