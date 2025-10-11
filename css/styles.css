@@ -731,6 +731,49 @@ body {
     color: rgba(255, 255, 255, 0.9);
 }
 
+/* Services Page Styles */
+.services-hero {
+    background: linear-gradient(135deg, #F8FAFC 0%, #FEF3C7 100%);
+    padding: 8rem 0 5rem;
+    text-align: center;
+    margin-bottom: 150px;
+}
+
+.services-table {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    margin: 3rem 0;
+}
+
+.table-header {
+    background: #1E40AF;
+    color: white;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1rem;
+    font-weight: 600;
+}
+
+.table-row {
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1rem;
+    border-bottom: 1px solid #E2E8F0;
+    transition: background 0.3s ease;
+}
+
+.table-row:hover {
+    background: #F8FAFC;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
