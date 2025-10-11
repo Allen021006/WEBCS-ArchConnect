@@ -590,6 +590,73 @@ body {
     font-size: 0.875rem;
 }
 
+/* About Page Specific Styles */
+.about-archconnect {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background: #F8FAFC;
+    overflow: hidden;
+    background: linear-gradient(135deg, #D2E8ED 0%, #E4C2AA 100%);
+    margin-bottom: 0px;
+}
+
+.about-background {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    width: 60%;
+    height: 100%;
+    z-index: 1;
+}
+
+.about-background img {
+    width: 1200px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+.about-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.349);
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    max-width: 700px;
+    margin-left: 0;
+}
+
+.about-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.about-description {
+    font-size: 1.125rem;
+    color: #111827;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.about-description:last-child {
+    margin-bottom: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
