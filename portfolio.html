@@ -1,1 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio & Vision - ArchConnect</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <img src="images/ArchiLogo.svg" alt="ArchConnect">
+                    </div>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="about.html" class="nav-link">About Us</a></li>
+                        <li><a href="services.html" class="nav-link">Services</a></li>
+                        <li><a href="portfolio.html" class="nav-link active">Portfolio & Vision</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
 
+    <!-- Portfolio Hero Section -->
+    <div class="portfolio-hero">
+        <div class="container">
+            <h1 class="section-title">Portfolio & Vision</h1>
+            <p class="section-description">Discover a curated collection of architectural projects that showcase creativity, innovation, and functionality. Explore completed works, conceptual designs, and inspirational ideas to spark your own projects.</p>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="residential">Residential</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="interior">Interior</button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <div class="portfolio-card" data-category="commercial sustainable">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" alt="Sustainable Office Complex">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Sustainable Office Complex</h3>
+                        <p>LEED Platinum certified workspace featuring innovative green technologies and biophilic design elements.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Commercial</span>
+                            <span class="tag">Sustainable</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="residential interior">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80" alt="Modern Family Residence">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Modern Family Residence</h3>
+                        <p>Contemporary home design balancing privacy with natural light and seamless indoor-outdoor living.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Residential</span>
+                            <span class="tag">Interior</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <img src="images/ArchiLogo.svg" alt="ArchConnect">
+                        </div>
+                    </div>
+                    <p>Connecting clients, architects, and design professionals in one innovative platform.</p>
+                    <p class="copyright">© Copyright 2025 ArchConnect. All rights reserved.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Contact</h3>
+                    <p>hello@archconnect.com</p>
+                    <p>+1 (555) 123-ARCH</p>
+                    <p>123 Design District</p>
+                    <p>Creative City, CC 12345</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick FAQ</h3>
+                    <div class="faq-item">
+                        <p><strong>How do I join?</strong></p>
+                        <p>Sign up and create your profile to get started.</p>
+                    </div>
+                    <div class="faq-item">
+                        <p><strong>Is it free?</strong></p>
+                        <p>Basic membership is free, premium features available.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Building the future of architectural collaboration, one connection at a time.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
