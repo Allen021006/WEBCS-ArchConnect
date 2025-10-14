@@ -10,8 +10,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Close mobile menu when clicking on a link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navList.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!hamburger.contains(e.target) && !navList.contains(e.target)) {
+            navList.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+    });
+
     // Portfolio Filter Functionality
-document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioCards = document.querySelectorAll('.portfolio-card');
 
@@ -42,10 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-});
 
-// Form Validation and Submission
-document.addEventListener('DOMContentLoaded', function() {
+    // Form Validation and Submission
     const forms = document.querySelectorAll('form');
     
     forms.forEach(form => {
@@ -81,6 +95,64 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Simple carousel controller for #featured-carousel
+    const carousel = document.getElementById('featured-carousel');
+    if (!carousel) return;
+
+    const track = carousel.querySelector('.carousel-track');
+    const prevBtn = carousel.querySelector('.carousel-button.prev');
+    const nextBtn = carousel.querySelector('.carousel-button.next');
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+    const items = Array.from(track.children);
+    let index = 0;
+
+    // Create dots
+    const totalSlides = items.length;
+    for (let i = 0; i < totalSlides; i++) {
+        const btn = document.createElement('button');
+        btn.dataset.index = i;
+        if (i === 0) btn.classList.add('active');
+        btn.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(btn);
+    }
+
+    function update() {
+        const cardWidth = items[0].getBoundingClientRect().width;
+        const offset = -(cardWidth * index);
+        track.style.transform = `translateX(${offset}px)`;
+        // update dots
+        const dots = dotsContainer.querySelectorAll('button');
+        dots.forEach(d => d.classList.remove('active'));
+        if (dots[index]) dots[index].classList.add('active');
+    }
+
+    function goTo(i) {
+        const visibleCards = Math.floor(carousel.offsetWidth / items[0].offsetWidth);
+        const maxIndex = totalSlides - visibleCards;
+
+        if (i < 0) i = maxIndex;
+        if (i > maxIndex) i = 0;
+
+        index = i;
+        update();
+    }
+
+    prevBtn.addEventListener('click', () => goTo(index - 1));
+    nextBtn.addEventListener('click', () => goTo(index + 1));
+
+    // Touch support
+    let startX = 0;
+    let isDragging = false;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; });
+    track.addEventListener('touchmove', e => { if (!isDragging) return; const dx = e.touches[0].clientX - startX; track.style.transform = `translateX(${-(items[0].getBoundingClientRect().width + 16) * index + dx}px)`; });
+    track.addEventListener('touchend', e => { isDragging = false; const dx = e.changedTouches[0].clientX - startX; if (dx > 40) goTo(index - 1); else if (dx < -40) goTo(index + 1); else update(); });
+
+    // Resize observer to adjust transform when layout changes
+    window.addEventListener('resize', update);
+
+    // Initial layout
+    setTimeout(update, 50);
 });
 
 // Notification System
@@ -173,21 +245,3 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-    
-    // Close mobile menu when clicking on a link
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navList.classList.remove('active');
-            hamburger.classList.remove('active');
-        });
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!hamburger.contains(e.target) && !navList.contains(e.target)) {
-            navList.classList.remove('active');
-            hamburger.classList.remove('active');
-        }
-    });
-});
