@@ -867,6 +867,140 @@ body {
     font-weight: 500;
 }
 
+/* Contact Page Styles */
+.contact-hero {
+    background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+    padding: 8rem 0 5rem;
+    text-align: center;
+}
+
+.contact-wrapper {
+    display: flex;
+    gap: 4rem;
+    margin: 3rem auto;
+    max-width: 1100px;
+    padding: 0 20px;
+    align-items: start;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-form {
+    background: #3B82F6;
+    padding: 2rem;
+    border-radius: 12px;
+    color: white;
+    flex: 1;
+    min-width: 400px;
+}
+
+.contact-form h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    background: white;
+    color: #333;
+    font-size: 1rem;
+}
+
+.contact-form .form-group input::placeholder,
+.contact-form .form-group textarea::placeholder {
+    color: #64748B;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1E40AF;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.info-icon {
+    width: 20px;
+    height: 20px;
+    color: #1E40AF;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.social-icon.facebook {
+    background: #1877F2;
+}
+
+.social-icon.instagram {
+    background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF);
+}
+
+.social-icon.twitter {
+    background: #000000;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.form-buttons .btn {
+    flex: 1;
+    text-align: center;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
