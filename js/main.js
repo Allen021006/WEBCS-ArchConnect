@@ -245,3 +245,92 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Intersection Observer for Animations
+document.addEventListener('DOMContentLoaded', function() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements for animation
+    const animatedElements = document.querySelectorAll('.goal-card, .step-card, .feature-card, .portfolio-card, .project-card');
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+});
+
+// Header Scroll Effect
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.header');
+    
+    if (header) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(248, 250, 252, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#F8FAFC';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    }
+});
+
+// Loading Animation
+window.addEventListener('load', function() {
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.5s ease-in';
+    
+    setTimeout(() => {
+        document.body.style.opacity = '1';
+    }, 100);
+});
+
+// Project Card Hover Effects
+document.addEventListener('DOMContentLoaded', function() {
+    const projectCards = document.querySelectorAll('.project-card, .portfolio-card');
+    
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+});
+
+// Form Reset Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const resetButtons = document.querySelectorAll('button[type="reset"]');
+    
+    resetButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const form = this.closest('form');
+            if (form) {
+                // Reset all form fields
+                const inputs = form.querySelectorAll('input, textarea, select');
+                inputs.forEach(input => {
+                    input.style.borderColor = '#e2e8f0';
+                    input.value = '';
+                });
+                
+                showNotification('Form has been reset.', 'info');
+            }
+        });
+    });
+});
