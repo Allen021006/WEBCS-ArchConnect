@@ -15,7 +15,7 @@
             <div class="nav-wrapper">
                 <div class="logo">
                     <div class="logo-icon">
-                        <img src="images/ArchiLogo.svg" alt="ArchConnect">
+                        <img src="images\ArchiLogo.svg" alt="ArchConnect">
                     </div>
                 </div>
                 <nav class="nav">
@@ -48,6 +48,8 @@
                 <button class="filter-btn" data-filter="residential">Residential</button>
                 <button class="filter-btn" data-filter="commercial">Commercial</button>
                 <button class="filter-btn" data-filter="interior">Interior</button>
+                <button class="filter-btn" data-filter="conceptual">Conceptual</button>
+                <button class="filter-btn" data-filter="sustainable">Sustainable</button>
             </div>
 
             <!-- Portfolio Grid -->
@@ -79,18 +81,131 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="portfolio-card" data-category="commercial conceptual">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Urban Cultural Hub">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Urban Cultural Hub</h3>
+                        <p>Multi-purpose community center designed to foster cultural exchange and artistic collaboration.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Commercial</span>
+                            <span class="tag">Conceptual</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="residential interior">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Luxury Penthouse Interior">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Luxury Penthouse Interior</h3>
+                        <p>High-end residential design featuring panoramic city views and premium finishes throughout.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Residential</span>
+                            <span class="tag">Interior</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="commercial sustainable">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Eco-Friendly Retail Space">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Eco-Friendly Retail Space</h3>
+                        <p>Modern retail interior with natural light and wooden elements, promoting sustainable shopping experiences.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Commercial</span>
+                            <span class="tag">Sustainable</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="conceptual residential">
+                    <div class="portfolio-image">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Future Living Concept">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Future Living Concept</h3>
+                        <p>Minimalist interior design with large windows overlooking water, exploring future living possibilities.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Conceptual</span>
+                            <span class="tag">Residential</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- Our Vision Section -->
+    <section class="vision-section">
+        <div class="container">
+            <h2 class="section-title">Our Vision</h2>
+            <p class="section-description">At ArchConnect, we aim to inspire a new generation of architects and clients by showcasing forward-thinking designs, blending creativity with functionality. Every project in our portfolio represents a step towards smarter, more sustainable, and aesthetically engaging spaces.</p>
+        </div>
+    </section>
+
+    <!-- For Architects: Share Your Work Section -->
+    <section class="submission-section">
+        <div class="container">
+            <div class="submission-content">
+                <h2 class="section-title">For Architects: Share Your Work</h2>
+                <p>Join our community of design professionals and showcase your projects to potential clients worldwide.</p>
+                <button class="upload-btn">Upload Yours</button>
+            </div>
+
+            <!-- Project Submission Form -->
+            <div class="submission-form">
+                <h3>Project Submission Form</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="project-title">Project Title</label>
+                        <input type="text" id="project-title" name="project-title" placeholder="Enter project title">
+                    </div>
+                    <div class="form-group">
+                        <label for="project-category">Project Category</label>
+                        <select id="project-category" name="project-category">
+                            <option value="">Select category</option>
+                            <option value="residential">Residential</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="interior">Interior</option>
+                            <option value="conceptual">Conceptual</option>
+                            <option value="sustainable">Sustainable</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-description">Project Description</label>
+                        <textarea id="project-description" name="project-description" rows="4" placeholder="Describe your project, its unique features, and design philosophy"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="project-images">Project Images</label>
+                        <div class="file-upload" id="file-upload">
+                            <p>Drag & Drop Images Here</p>
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary">Submit Project</button>
+                        <button type="button" class="btn btn-secondary">Save Draft</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    </section>
 
-    <!-- Footer -->
+   
+
+        <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
                         <div class="logo-icon">
-                            <img src="images/ArchiLogo.svg" alt="ArchConnect">
+                            <img src="images\ArchiLogo.svg" alt="ArchConnect">
                         </div>
                     </div>
                     <p>Connecting clients, architects, and design professionals in one innovative platform.</p>
@@ -118,6 +233,10 @@
                         <p><strong>Is it free?</strong></p>
                         <p>Basic membership is free, premium features available.</p>
                     </div>
+                    <div class="faq-item">
+                        <p><strong>Support available?</strong></p>
+                        <p>24/7 support for all members.</p>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -126,6 +245,9 @@
         </div>
     </footer>
 
+
     <script src="js/script.js"></script>
 </body>
 </html>
+
+
