@@ -26,8 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
             hamburger.classList.remove('active');
         }
     });
+});
 
-    // Portfolio Filter Functionality
+// Portfolio Filter Functionality
+document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioCards = document.querySelectorAll('.portfolio-card');
 
@@ -58,8 +60,10 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+});
 
-    // Form Validation and Submission
+// Form Validation and Submission
+document.addEventListener('DOMContentLoaded', function() {
     const forms = document.querySelectorAll('form');
     
     forms.forEach(form => {
@@ -95,64 +99,73 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+});
 
-    // Simple carousel controller for #featured-carousel
-    const carousel = document.getElementById('featured-carousel');
-    if (!carousel) return;
+// File Upload Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const fileUpload = document.getElementById('file-upload');
+    
+    if (fileUpload) {
+        fileUpload.addEventListener('click', function() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.multiple = true;
+            input.accept = 'image/*';
+            
+            input.addEventListener('change', function(e) {
+                const files = Array.from(e.target.files);
+                if (files.length > 0) {
+                    fileUpload.innerHTML = `<p>${files.length} file(s) selected</p>`;
+                    fileUpload.style.borderColor = '#10b981';
+                }
+            });
+            
+            input.click();
+        });
 
-    const track = carousel.querySelector('.carousel-track');
-    const prevBtn = carousel.querySelector('.carousel-button.prev');
-    const nextBtn = carousel.querySelector('.carousel-button.next');
-    const dotsContainer = carousel.querySelector('.carousel-dots');
-    const items = Array.from(track.children);
-    let index = 0;
+        // Drag and drop functionality
+        fileUpload.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            fileUpload.style.borderColor = '#3b82f6';
+            fileUpload.style.backgroundColor = 'rgba(59, 130, 246, 0.1)';
+        });
 
-    // Create dots
-    const totalSlides = items.length;
-    for (let i = 0; i < totalSlides; i++) {
-        const btn = document.createElement('button');
-        btn.dataset.index = i;
-        if (i === 0) btn.classList.add('active');
-        btn.addEventListener('click', () => goTo(i));
-        dotsContainer.appendChild(btn);
+        fileUpload.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            fileUpload.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+            fileUpload.style.backgroundColor = 'transparent';
+        });
+
+        fileUpload.addEventListener('drop', function(e) {
+            e.preventDefault();
+            const files = Array.from(e.dataTransfer.files);
+            if (files.length > 0) {
+                fileUpload.innerHTML = `<p>${files.length} file(s) selected</p>`;
+                fileUpload.style.borderColor = '#10b981';
+                fileUpload.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
+            }
+        });
     }
+});
 
-    function update() {
-        const cardWidth = items[0].getBoundingClientRect().width;
-        const offset = -(cardWidth * index);
-        track.style.transform = `translateX(${offset}px)`;
-        // update dots
-        const dots = dotsContainer.querySelectorAll('button');
-        dots.forEach(d => d.classList.remove('active'));
-        if (dots[index]) dots[index].classList.add('active');
-    }
-
-    function goTo(i) {
-        const visibleCards = Math.floor(carousel.offsetWidth / items[0].offsetWidth);
-        const maxIndex = totalSlides - visibleCards;
-
-        if (i < 0) i = maxIndex;
-        if (i > maxIndex) i = 0;
-
-        index = i;
-        update();
-    }
-
-    prevBtn.addEventListener('click', () => goTo(index - 1));
-    nextBtn.addEventListener('click', () => goTo(index + 1));
-
-    // Touch support
-    let startX = 0;
-    let isDragging = false;
-    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; });
-    track.addEventListener('touchmove', e => { if (!isDragging) return; const dx = e.touches[0].clientX - startX; track.style.transform = `translateX(${-(items[0].getBoundingClientRect().width + 16) * index + dx}px)`; });
-    track.addEventListener('touchend', e => { isDragging = false; const dx = e.changedTouches[0].clientX - startX; if (dx > 40) goTo(index - 1); else if (dx < -40) goTo(index + 1); else update(); });
-
-    // Resize observer to adjust transform when layout changes
-    window.addEventListener('resize', update);
-
-    // Initial layout
-    setTimeout(update, 50);
+// Smooth Scrolling for Anchor Links
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 });
 
 // Notification System
@@ -272,31 +285,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Header Scroll Effect
+// Video Play Button Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const header = document.querySelector('.header');
+    const playButton = document.querySelector('.play-button');
     
-    if (header) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(248, 250, 252, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = '#F8FAFC';
-                header.style.backdropFilter = 'none';
-            }
+    if (playButton) {
+        playButton.addEventListener('click', function() {
+            // In a real implementation, this would open a video modal or redirect to a video
+            //showNotification('Video play functionality is not implemented in this demo.', 'info');
         });
     }
-});
-
-// Loading Animation
-window.addEventListener('load', function() {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease-in';
-    
-    setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
 });
 
 // Project Card Hover Effects
@@ -329,8 +327,182 @@ document.addEventListener('DOMContentLoaded', function() {
                     input.value = '';
                 });
                 
+                // Reset file upload area
+                const fileUpload = document.getElementById('file-upload');
+                if (fileUpload) {
+                    fileUpload.innerHTML = '<p>Drag & Drop Images Here</p>';
+                    fileUpload.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                    fileUpload.style.backgroundColor = 'transparent';
+                }
+                
                 showNotification('Form has been reset.', 'info');
             }
         });
     });
+});
+
+// Header Scroll Effect
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.header');
+    
+    if (header) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(248, 250, 252, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#F8FAFC';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    }
+});
+
+// Loading Animation
+window.addEventListener('load', function() {
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.5s ease-in';
+    
+    setTimeout(() => {
+        document.body.style.opacity = '1';
+    }, 100);
+});
+
+let map;
+const chicago = { lat: 41.85, lng: -87.65 };
+
+/**
+ * Creates a control that recenters the map on Chicago.
+ */
+function createCenterControl(map) {
+  const controlButton = document.createElement("button");
+
+  // Set CSS for the control.
+  controlButton.classList.add('buttonStyle');
+
+  controlButton.textContent = "Center Map";
+  controlButton.title = "Click to recenter the map";
+  controlButton.type = "button";
+  // Setup the click event listeners: simply set the map to Chicago.
+  controlButton.addEventListener("click", () => {
+    map.setCenter(chicago);
+  });
+  return controlButton;
+}
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 4,
+    center: { lat: 49.496675, lng: -102.65625 },
+  });
+
+  var georssLayer = new google.maps.KmlLayer({
+    url: "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss",
+  });
+  georssLayer.setMap(map);
+
+  // Create the DIV to hold the control.
+  const centerControlDiv = document.createElement("div");
+  // Create the control.
+  const centerControl = createCenterControl(map);
+
+  // Append the control to the DIV.
+  centerControlDiv.appendChild(centerControl);
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(
+    centerControlDiv
+  );
+}
+
+// Video play control: ensure video does not autoplay and only plays when user clicks the play button
+document.addEventListener('DOMContentLoaded', function() {
+    const videoThumb = document.querySelector('.video-thumbnail video');
+    const playBtn = document.querySelector('.video-thumbnail .play-button');
+
+    if (videoThumb) {
+        // Prevent any accidental autoplay
+        try { videoThumb.pause(); videoThumb.currentTime = 0; } catch (e) {}
+        // Show controls only when playing
+        videoThumb.controls = false;
+    }
+
+    if (playBtn && videoThumb) {
+        playBtn.addEventListener('click', function() {
+            if (videoThumb.paused) {
+                videoThumb.play().catch(err => console.error('Video play prevented:', err));
+                playBtn.style.display = 'none';
+                videoThumb.controls = true;
+            } else {
+                videoThumb.pause();
+                playBtn.style.display = '';
+                videoThumb.controls = false;
+            }
+        });
+
+        // If the video ends, show the play button again
+        videoThumb.addEventListener('ended', function() {
+            playBtn.style.display = '';
+            videoThumb.controls = false;
+        });
+    }
+});
+
+// Simple carousel controller for #featured-carousel
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.getElementById('featured-carousel');
+    if (!carousel) return;
+
+    const track = carousel.querySelector('.carousel-track');
+    const prevBtn = carousel.querySelector('.carousel-button.prev');
+    const nextBtn = carousel.querySelector('.carousel-button.next');
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+    const items = Array.from(track.children);
+    let index = 0;
+
+    // Create dots
+    const totalSlides = items.length;
+    for (let i = 0; i < totalSlides; i++) {
+        const btn = document.createElement('button');
+        btn.dataset.index = i;
+        if (i === 0) btn.classList.add('active');
+        btn.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(btn);
+    }
+
+    function update() {
+        const cardWidth = items[0].getBoundingClientRect().width;
+        const offset = -(cardWidth * index);
+        track.style.transform = `translateX(${offset}px)`;
+        // update dots
+        const dots = dotsContainer.querySelectorAll('button');
+        dots.forEach(d => d.classList.remove('active'));
+        if (dots[index]) dots[index].classList.add('active');
+    }
+
+function goTo(i) {
+    const visibleCards = Math.floor(carousel.offsetWidth / items[0].offsetWidth); // how many fit in viewport
+    const maxIndex = totalSlides - visibleCards; // last valid starting slide
+
+    if (i < 0) i = maxIndex;
+    if (i > maxIndex) i = 3;
+
+    index = i;
+    update();
+}
+
+
+    prevBtn.addEventListener('click', () => goTo(index - 1));
+    nextBtn.addEventListener('click', () => goTo(index + 1));
+
+    // Touch support
+    let startX = 0;
+    let isDragging = false;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; });
+    track.addEventListener('touchmove', e => { if (!isDragging) return; const dx = e.touches[0].clientX - startX; track.style.transform = `translateX(${-(items[0].getBoundingClientRect().width + 16) * index + dx}px)`; });
+    track.addEventListener('touchend', e => { isDragging = false; const dx = e.changedTouches[0].clientX - startX; if (dx > 40) goTo(index - 1); else if (dx < -40) goTo(index + 1); else update(); });
+
+    // Resize observer to adjust transform when layout changes
+    window.addEventListener('resize', update);
+
+    // Initial layout
+    setTimeout(update, 50);
 });
