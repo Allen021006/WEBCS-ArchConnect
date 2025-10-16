@@ -1,1 +1,73 @@
+/* Map Container Styles */
+.map-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 300px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 2rem;
+    background-color: #f5f5f5;
+}
 
+/* Error message styling */
+#map div[style*="text-align: center"] {
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 40px);
+}
+
+#map div[style*="text-align: center"] p {
+    margin: 10px 0;
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Ensure the map takes up the full container space */
+.map-container > div {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 12px !important;
+}
+
+/* Style the map controls */
+.gm-style-cc {
+    display: none;
+}
+
+/* Style the Google logo */
+a[href^="http://maps.google.com/maps"],
+a[href^="https://maps.google.com/maps"] {
+    display: none !important;
+}
+
+/* Style the info window */
+.gm-style .gm-style-iw-c {
+    padding: 12px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Remove the default info window tail */
+.gm-style .gm-style-iw-t::after {
+    display: none;
+}
+
+#map {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 12px;
+}
