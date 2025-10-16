@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - ArchConnect</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="map-styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -15,7 +16,7 @@
             <div class="nav-wrapper">
                 <div class="logo">
                     <div class="logo-icon">
-                        <img src="images/ArchiLogo.svg" alt="ArchConnect">
+                        <img src="images\ArchiLogo.svg" alt="ArchConnect">
                     </div>
                 </div>
                 <nav class="nav">
@@ -47,7 +48,7 @@
     <!-- Contact Content Section -->
     <section class="contact-content">
         <div class="container">
-            <div class="contact-wrapper">
+            <div class="contact-content">
                 <!-- Contact Form -->
                 <div class="contact-form">
                     <h3>Email us</h3>
@@ -65,6 +66,18 @@
                             <input type="text" id="subject" name="subject" placeholder="Brief subject or project type" required>
                         </div>
                         <div class="form-group">
+                            <label for="expertise">Architect Expertise</label>
+                            <select id="expertise" name="expertise">
+                                <option value="">Select specialization...</option>
+                                <option value="residential">Residential Architecture</option>
+                                <option value="commercial">Commercial Architecture</option>
+                                <option value="interior">Interior Design</option>
+                                <option value="landscape">Landscape Architecture</option>
+                                <option value="sustainable">Sustainable Design</option>
+                                <option value="urban">Urban Planning</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="message">Message *</label>
                             <textarea id="message" name="message" rows="5" placeholder="Tell us about your project, goals, or how we can help you connect with the right professionals..." required></textarea>
                         </div>
@@ -77,6 +90,16 @@
 
                 <!-- Contact Information -->
                 <div class="contact-info">
+                    <!-- Our Location -->
+                    <div class="info-section">
+                        <h3>Our Location</h3>
+                        <div class="map-container">
+                                <iframe
+                                    src="https://www.google.com/maps?q=123+Design+District,+Creative+City+CC+12345&output=embed"
+                                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                    </div>
+
                     <!-- Contact Information -->
                     <div class="info-section">
                         <h3>Contact Information</h3>
@@ -118,14 +141,14 @@
         </div>
     </section>
 
-    <!-- Footer -->
+       <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
                         <div class="logo-icon">
-                            <img src="images/ArchiLogo.svg" alt="ArchConnect">
+                            <img src="images\ArchiLogo.svg" alt="ArchConnect">
                         </div>
                     </div>
                     <p>Connecting clients, architects, and design professionals in one innovative platform.</p>
@@ -153,6 +176,10 @@
                         <p><strong>Is it free?</strong></p>
                         <p>Basic membership is free, premium features available.</p>
                     </div>
+                    <div class="faq-item">
+                        <p><strong>Support available?</strong></p>
+                        <p>24/7 support for all members.</p>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -161,6 +188,9 @@
         </div>
     </footer>
 
+
     <script src="js/script.js"></script>
 </body>
 </html>
+
+
