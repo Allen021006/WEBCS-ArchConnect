@@ -669,6 +669,33 @@ left: 50px;
     font-size: 0.875rem;
 }
 
+.footer-link {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-link:hover {
+    color: white;
+    opacity: 1;
+    text-decoration: underline;
+}
+
+
+/* Mobile responsive adjustments for footer */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .footer-link {
+        display: inline-block;
+        padding: 0.25rem 0;
+    }
+}
+
 /* iPad Pro (1024px) */
 @media (max-width: 1024px) {
     .hero-title {
