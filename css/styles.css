@@ -2682,6 +2682,10 @@ background: linear-gradient(135deg, #D2E8ED 0%, #E4C2AA 100%);
 
 /* Responsive adjustments for all pages */
 @media (max-width: 768px) {
+   .hero-text {
+        display: none;
+    }
+    
     .mission {
         min-height: 60vh;
         padding: 2rem 0;
